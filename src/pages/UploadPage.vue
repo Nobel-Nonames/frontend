@@ -25,6 +25,8 @@
         <input v-bind="getInputProps()" />
     </label>
 </div>
+
+<AButton>업로드</AButton>
 </template>
 
 <script setup>
@@ -34,6 +36,18 @@
   const selectedFile = ref(null)
 
   function onDrop(acceptFiles, rejectReasons) {
+
+    for (let file of acceptFiles) {
+      const rejected = file.path.endsWith('.png') ||
+          file.path.endsWith('.jpg') ||
+          file.path.endsWith('.jpeg')
+
+      if (!rejected) {
+        alert('지원하지 않는 파일 형식입니다!')
+        return
+      }
+    }
+
     console.log(acceptFiles)
     console.log(rejectReasons)
 

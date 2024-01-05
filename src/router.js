@@ -49,7 +49,7 @@ const mainLayoutRoutes = [
         component: AnalyticsPage,
       },
       {
-        path: '/images/:id',
+        path: '/classfication_images/:id',
         name: 'ImagePage',
         component: ImagePage
       },

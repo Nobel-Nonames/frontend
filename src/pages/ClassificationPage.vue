@@ -7,7 +7,7 @@
           :span="12"
           v-for="(item, idx) in mock"
           :key="idx"
-          @click="projectClick">
+          @click="router.push('/classfication_images/' + item.id)">
         <ACard :title="item.title" :bordered="false">
           <p>{{ item.desc }}</p>
         </ACard>
@@ -18,24 +18,26 @@
 
 <script setup>
 import { ref } from 'vue'
+import {useRouter} from "vue-router";
 const mock = ref([
   {
     title: 'Project 1',
-    desc: '프로젝트 1의 설명입니다.'
+    desc: '프로젝트 1의 설명입니다.',
+    id: '1'
   },
   {
     title: 'Project 2',
-    desc: '프로젝트 2의 설명입니다.'
+    desc: '프로젝트 2의 설명입니다.',
+    id: '2'
   },
   {
     title: 'Project 3',
-    desc: '프로젝트 3의 설명입니다.'
+    desc: '프로젝트 3의 설명입니다.',
+    id: '3'
   }
 ])
 
-const projectClick = e => {
-
-}
+const router = useRouter()
 </script>
 
 <style scoped>
